@@ -32,7 +32,12 @@ import com.ecom.entities.Ent_Role;
 import com.ecom.entities.Ent_User;
 import com.ecom.services.impl.MyService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://16.170.206.92")
+//@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = {"http://16.170.206.92", "http://localhost:3000"})
+//@CrossOrigin(origins = "*")
+
+@CrossOrigin
 @RestController
 @RequestMapping("/ss")
 public class MyController {
@@ -60,7 +65,7 @@ public class MyController {
 	
 	@PreAuthorize("hasRole('Role_User')")
 	@GetMapping("/getuser/{id}")
-	public Optional<Ent_User> getUserById(@PathVariable long id) {    // ======================================
+	public Optional<Ent_User> getUserById(@PathVariable long id) {
 		System.out.println("Post-Get-Done");
 		return myService.getUserById(id);
 	}
